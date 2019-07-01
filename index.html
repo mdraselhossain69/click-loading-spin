@@ -1,0 +1,64 @@
+<div id="loader-overlay">
+
+  <svg class="animated-loader loader">
+    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#animated-loader">
+      <svg id="animated-loader" viewBox="0 0 100 100">
+    <path fill="#cccccc" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50"></path>
+  </svg>
+    </use>
+  </svg>
+</div>
+<style>
+  
+#loader-overlay {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0!important;
+    z-index: 200;
+    opacity: .5;
+    background: #000;
+}
+#loader-overlay, .with-loader {
+    -webkit-transition: all .1s;
+    -o-transition: all .1s;
+    transition: all .1s;
+    /* display: block; */
+}
+
+.animated-loader {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    height: 100px;
+    width: 100px;
+}
+
+.loader {
+    opacity: 1;
+    z-index: 100;
+    -webkit-animation-name: spin;
+    animation-name: spin;
+    -webkit-animation-duration: .6s;
+    animation-duration: .6s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+}
+</style>
+<script>
+jQuery(document).ready(function($) {
+  if ($(window).width() < 768) {
+    $('input.cart__submit[name="checkout"]').click(function(event) {
+      /* Act on the event */
+      $('#loader-overlay').show();
+    });
+   }
+});
+</script>
